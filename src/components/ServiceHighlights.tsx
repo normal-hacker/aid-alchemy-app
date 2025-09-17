@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Shield, Search, CreditCard, Headphones, MapPin, Clock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -42,6 +43,8 @@ const services = [
 ];
 
 const ServiceHighlights = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="services" className="py-24 bg-gradient-service">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,10 +97,18 @@ const ServiceHighlights = () => {
             for their property management needs.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => navigate("/caretakers")}
+            >
               Find Caretakers Now
             </Button>
-            <Button variant="professional" size="lg">
+            <Button 
+              variant="professional" 
+              size="lg"
+              onClick={() => navigate("/signin")}
+            >
               Apply as Caretaker
             </Button>
           </div>

@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Users, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-building.jpg";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -47,10 +50,20 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-6 min-w-[200px]">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-8 py-6 min-w-[200px]"
+              onClick={() => navigate("/post-requirement")}
+            >
               Hire a Caretaker
             </Button>
-            <Button variant="action" size="lg" className="text-lg px-8 py-6 min-w-[200px]">
+            <Button 
+              variant="action" 
+              size="lg" 
+              className="text-lg px-8 py-6 min-w-[200px]"
+              onClick={() => navigate("/signin")}
+            >
               Become a Caretaker
             </Button>
           </div>

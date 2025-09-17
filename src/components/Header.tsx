@@ -1,16 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header className="bg-white/95 backdrop-blur-md border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 cursor-pointer" onClick={() => navigate("/")}>
             <h1 className="text-2xl font-bold text-primary">CareTaker Pro</h1>
           </div>
 
@@ -24,8 +26,8 @@ const Header = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost">Sign In</Button>
-            <Button variant="professional">Get Started</Button>
+            <Button variant="ghost" onClick={() => navigate("/signin")}>Sign In</Button>
+            <Button variant="professional" onClick={() => navigate("/post-requirement")}>Get Started</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -50,8 +52,8 @@ const Header = () => {
               <a href="#contact" className="block px-3 py-2 text-foreground hover:text-primary transition-colors">Contact</a>
               <div className="pt-4 pb-3 border-t border-border">
                 <div className="flex items-center space-x-3">
-                  <Button variant="ghost" className="w-full justify-center">Sign In</Button>
-                  <Button variant="professional" className="w-full justify-center">Get Started</Button>
+                  <Button variant="ghost" className="w-full justify-center" onClick={() => navigate("/signin")}>Sign In</Button>
+                  <Button variant="professional" className="w-full justify-center" onClick={() => navigate("/post-requirement")}>Get Started</Button>
                 </div>
               </div>
             </div>
