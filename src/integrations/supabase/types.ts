@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          aadhaar_document_url: string | null
+          created_at: string
+          full_name: string
+          id: string
+          phone_number: string
+          updated_at: string
+          user_id: string
+          user_type: Database["public"]["Enums"]["user_type"]
+        }
+        Insert: {
+          aadhaar_document_url?: string | null
+          created_at?: string
+          full_name: string
+          id?: string
+          phone_number: string
+          updated_at?: string
+          user_id: string
+          user_type: Database["public"]["Enums"]["user_type"]
+        }
+        Update: {
+          aadhaar_document_url?: string | null
+          created_at?: string
+          full_name?: string
+          id?: string
+          phone_number?: string
+          updated_at?: string
+          user_id?: string
+          user_type?: Database["public"]["Enums"]["user_type"]
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +55,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      user_type: "owner" | "caretaker"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +182,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      user_type: ["owner", "caretaker"],
+    },
   },
 } as const
